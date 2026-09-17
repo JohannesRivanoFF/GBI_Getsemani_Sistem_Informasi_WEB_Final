@@ -197,3 +197,44 @@ function toggleWaChat() {
   const chatBox = document.getElementById("waChatBox");
   chatBox.classList.toggle("active");
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.querySelector(".schedule-section");
+  const glow = document.querySelector(".background-glow");
+
+  if (!section || !glow) return;
+
+  let mouseX = 0,
+    mouseY = 0;
+  let currentX = 0,
+    currentY = 0;
+
+  // Mendapatkan posisi kursor saat bergerak di dalam section
+  section.addEventListener("mousemove", (e) => {
+    const rect = section.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+  });
+
+  // Fungsi animasi agar pergerakan background terasa mengalir (tidak kaku)
+  function animateBackground() {
+    // Angka '0.08' mengatur tingkat kehalusan/kelambatan kejar (semakin kecil semakin smooth/mengalir)
+    currentX += (mouseX - currentX) * 0.08;
+    currentY += (mouseY - currentY) * 0.08;
+
+    glow.style.left = `${currentX}px`;
+    glow.style.top = `${currentY}px`;
+
+    requestAnimationFrame(animateBackground);
+  }
+
+  animateBackground();
+
+  // Opsi opsional: Perbesar sedikit cahaya background saat kursor masuk ke area section
+  section.addEventListener("mouseenter", () => {
+    glow.style.opacity = "1";
+  });
+
+  section.addEventListener("mouseleave", () => {
+    glow.style.opacity = "0";
+  });
+});
