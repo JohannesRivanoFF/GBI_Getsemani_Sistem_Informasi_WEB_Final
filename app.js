@@ -1,4 +1,4 @@
-﻿const navToggle = document.querySelector(".nav-toggle");
+const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
 const navLinks = document.querySelectorAll(".nav-menu a");
 const year = document.querySelector("#year");
@@ -238,3 +238,276 @@ document.addEventListener("DOMContentLoaded", () => {
     glow.style.opacity = "0";
   });
 });
+
+// ===== DYNAMIC CMS CONTENT: KEGIATAN & KHOTBAH =====
+async function loadDynamicKegiatan() {
+  const galleryGrid = document.getElementById("gallery-grid");
+  if (!galleryGrid) return;
+
+  try {
+    const res = await fetch("./api/kegiatan.php");
+    if (!res.ok) return;
+    const result = await res.json();
+    if (result.success && Array.isArray(result.data) && result.data.length > 0) {
+      galleryGrid.innerHTML = result.data.map(item => `
+        <figure>
+          <div class="gallery-image">
+            <img
+              src="${escapeHtml(item.image || './Resource/IBADAH MINGGU.jpeg')}"
+              alt="${escapeHtml(item.title || 'Kegiatan')}"
+              loading="lazy"
+            />
+            <div class="gallery-overlay">
+              <span class="overlay-title">${escapeHtml(item.title || '')}</span>
+              <span class="overlay-desc">${escapeHtml(item.short_desc || item.description || '')}</span>
+            </div>
+          </div>
+          <figcaption>
+            <strong>${escapeHtml(item.title || '')}</strong>
+            <p>${escapeHtml(item.description || item.short_desc || '')}</p>
+            <span class="date">📅 ${escapeHtml(item.date || '')}</span>
+          </figcaption>
+        </figure>
+      `).join('');
+    }
+  } catch (e) {
+    console.debug("Dynamic kegiatan fetch skipped or failed, using fallback:", e);
+  }
+}
+
+async function loadDynamicKhotbah() {
+  const khotbahGrid = document.getElementById("khotbah-grid");
+  if (!khotbahGrid) return;
+
+  try {
+    const res = await fetch("./api/khotbah.php");
+    if (!res.ok) return;
+    const result = await res.json();
+    if (result.success && Array.isArray(result.data) && result.data.length > 0) {
+      khotbahGrid.innerHTML = result.data.map(item => `
+        <article class="khotbah-card">
+          <a
+            href="${escapeHtml(item.youtube_url || '#')}"
+            target="_blank"
+            rel="noopener"
+            class="khotbah-link"
+          >
+            <div class="khotbah-device">
+              <div class="khotbah-device-frame">
+                <div class="device-notch"></div>
+                <div class="khotbah-thumbnail">
+                  <img
+                    src="${escapeHtml(item.thumbnail || './Resource/Screenshot 2026-07-26 233705.png')}"
+                    alt="Thumbnail Khotbah - ${escapeHtml(item.title || '')}"
+                    loading="lazy"
+                  />
+                  <div class="khotbah-play">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="white"
+                      width="56"
+                      height="56"
+                    >
+                      <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                  </div>
+                  <div class="khotbah-duration">${escapeHtml(item.duration || '30:00')}</div>
+                </div>
+              </div>
+              <div class="device-bottom"></div>
+            </div>
+            <div class="khotbah-info">
+              <span class="khotbah-series">${escapeHtml(item.series || 'M|G')}</span>
+              <h3 class="khotbah-title">${escapeHtml(item.title || '')}</h3>
+              <p class="khotbah-pastor">${escapeHtml(item.pastor || 'Pdt. Michael Gunawan')}</p>
+              <div class="khotbah-views">👁️ ${escapeHtml(item.views || '0 views')}</div>
+            </div>
+          </a>
+        </article>
+      `).join('');
+    }
+  } catch (e) {
+    console.debug("Dynamic khotbah fetch skipped or failed, using fallback:", e);
+  }
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadDynamicKegiatan();
+  loadDynamicKhotbah();
+
+  // ===== PASTOR FULL-STAGE SPOTLIGHT SLIDER (1-BY-1 CONTROLLER) =====
+  function initPastorSlider() {
+    const track = document.getElementById("pastorTrack");
+    const slides = document.querySelectorAll(".pastor-slide");
+    const tabs = document.querySelectorAll(".pastor-tab");
+    const dots = document.querySelectorAll(".pastor-dot");
+    const prevBtn = document.getElementById("pastorPrevBtn");
+    const nextBtn = document.getElementById("pastorNextBtn");
+    const currentIdxEl = document.getElementById("pastorCurrentIndex");
+    const totalCountEl = document.getElementById("pastorTotalCount");
+    const stage = document.getElementById("pastorStage");
+
+    if (!track || slides.length === 0) return;
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let autoSlideTimer = null;
+
+    if (totalCountEl) {
+      totalCountEl.textContent = String(totalSlides).padStart(2, "0");
+    }
+
+    function updateSlide(index) {
+      currentSlide = (index + totalSlides) % totalSlides;
+
+      // Update Track transform (sliding horizontally 100% per slide)
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      // Update Slides state
+      slides.forEach((slide, idx) => {
+        const isActive = idx === currentSlide;
+        slide.classList.toggle("is-active", isActive);
+        slide.setAttribute("aria-hidden", !isActive);
+      });
+
+      // Update Tabs state
+      tabs.forEach((tab, idx) => {
+        const isActive = idx === currentSlide;
+        tab.classList.toggle("is-active", isActive);
+        tab.setAttribute("aria-selected", isActive);
+      });
+
+      // Update Dots state
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle("is-active", idx === currentSlide);
+      });
+
+      // Update Counter
+      if (currentIdxEl) {
+        currentIdxEl.textContent = String(currentSlide + 1).padStart(2, "0");
+      }
+    }
+
+    // Prev / Next button clicks
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        updateSlide(currentSlide - 1);
+        restartAutoSlide();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        updateSlide(currentSlide + 1);
+        restartAutoSlide();
+      });
+    }
+
+    // Tabs clicks
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const idx = parseInt(tab.getAttribute("data-index"), 10);
+        if (!isNaN(idx)) {
+          updateSlide(idx);
+          restartAutoSlide();
+        }
+      });
+    });
+
+    // Dots clicks
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const idx = parseInt(dot.getAttribute("data-index"), 10);
+        if (!isNaN(idx)) {
+          updateSlide(idx);
+          restartAutoSlide();
+        }
+      });
+    });
+
+    // Touch Swipe support for Mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 45;
+
+    if (stage) {
+      stage.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      stage.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      // Pause on hover
+      stage.addEventListener("mouseenter", () => stopAutoSlide());
+      stage.addEventListener("mouseleave", () => startAutoSlide());
+    }
+
+    function handleSwipe() {
+      const diffX = touchEndX - touchStartX;
+      if (Math.abs(diffX) > swipeThreshold) {
+        if (diffX < 0) {
+          // Swiped left -> next slide
+          updateSlide(currentSlide + 1);
+        } else {
+          // Swiped right -> prev slide
+          updateSlide(currentSlide - 1);
+        }
+        restartAutoSlide();
+      }
+    }
+
+    // Keyboard Arrow navigation when pastor section is focused
+    const pastorSection = document.getElementById("gembala");
+    if (pastorSection) {
+      pastorSection.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") {
+          updateSlide(currentSlide - 1);
+          restartAutoSlide();
+        } else if (e.key === "ArrowRight") {
+          updateSlide(currentSlide + 1);
+          restartAutoSlide();
+        }
+      });
+    }
+
+    // Auto-slide every 8 seconds
+    function startAutoSlide() {
+      stopAutoSlide();
+      autoSlideTimer = setInterval(() => {
+        updateSlide(currentSlide + 1);
+      }, 8000);
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideTimer) {
+        clearInterval(autoSlideTimer);
+        autoSlideTimer = null;
+      }
+    }
+
+    function restartAutoSlide() {
+      stopAutoSlide();
+      startAutoSlide();
+    }
+
+    // Initialize
+    updateSlide(0);
+    startAutoSlide();
+  }
+
+  initPastorSlider();
+});
+

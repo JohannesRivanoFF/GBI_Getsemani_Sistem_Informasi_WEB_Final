@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="utf-8" />
@@ -120,6 +120,30 @@
           </div>
         </div>
       </section>
+
+      <!-- ===== INFINITE MARQUEE TICKER ===== -->
+      <aside class="infinite-marquee" aria-label="Warta dan Firman Berjalan">
+        <div class="marquee-track">
+          <div class="marquee-content">
+            <span class="marquee-item"><span class="marquee-icon">✦</span> Rumah Bagi Setiap Generasi</span>
+            <span class="marquee-item"><span class="marquee-icon">•</span> Bertumbuh Dalam Iman, Melayani Dengan Kasih</span>
+            <span class="marquee-item"><span class="marquee-icon">✦</span> Ibadah Raya Minggu: 06.15 &amp; 18.15 WIB</span>
+            <span class="marquee-item"><span class="marquee-icon">•</span> Kebaktian Doa Fajar: Senin - Sabtu 05.00 WIB</span>
+            <span class="marquee-item"><span class="marquee-icon">✦</span> GBI Getsemani Kediri — Jl. Hasanudin 12</span>
+            <span class="marquee-item"><span class="marquee-icon">•</span> Matius 28:19-20 — Jadikanlah Semua Bangsa Murid-Ku</span>
+          </div>
+          <!-- Duplicate content for seamless infinite CSS animation -->
+          <div class="marquee-content" aria-hidden="true">
+            <span class="marquee-item"><span class="marquee-icon">✦</span> Rumah Bagi Setiap Generasi</span>
+            <span class="marquee-item"><span class="marquee-icon">•</span> Bertumbuh Dalam Iman, Melayani Dengan Kasih</span>
+            <span class="marquee-item"><span class="marquee-icon">✦</span> Ibadah Raya Minggu: 06.15 &amp; 18.15 WIB</span>
+            <span class="marquee-item"><span class="marquee-icon">•</span> Kebaktian Doa Fajar: Senin - Sabtu 05.00 WIB</span>
+            <span class="marquee-item"><span class="marquee-icon">✦</span> GBI Getsemani Kediri — Jl. Hasanudin 12</span>
+            <span class="marquee-item"><span class="marquee-icon">•</span> Matius 28:19-20 — Jadikanlah Semua Bangsa Murid-Ku</span>
+          </div>
+        </div>
+      </aside>
+
       <!-- ===== QUICK INFO ===== -->
       <section class="quick-info-modern" aria-label="Informasi singkat">
         <div class="quick-info-container">
@@ -399,93 +423,322 @@
         <div class="schedule-footer"></div>
       </section>
 
-      <!-- ===== GEMBALA SIDANG ===== -->
+      <!-- ===== GEMBALA SIDANG (1-BY-1 FULL SPOTLIGHT SLIDER) ===== -->
       <section
         class="section pastor-section"
         id="gembala"
         aria-labelledby="gembala-title"
       >
-        <div class="pastor-wrapper">
-          <!-- ================= GEMBALA 1 (UTAMA) ================= -->
-          <div class="pastor-container">
-            <div class="pastor-image">
-              <img
-                src="./Resource/Screenshot_2026-07-27_013853-removebg-preview.png"
-                alt="Pdt. Ed Merdhiriawan"
-              />
-            </div>
-            <div class="pastor-content">
-              <p class="eyebrow">Gembala Sidang GBI Getsemani Kediri</p>
-              <h2 id="gembala-title">Pdt. Ed Merdhiriawan, S.KH., M.Th.</h2>
-              <div class="pastor-description">
-                <p>
-                  Dipanggil untuk melayani Tuhan sejak usia muda, Pdt. Ed
-                  Merdhiriawan memulai pelayanan dan mendedikasikan hidupnya
-                  sebagai seorang gembala. Kerinduannya adalah melihat generasi
-                  ini dipulihkan dan menjadi dampak bagi dunia. Passionnya
-                  berada dalam pelayanan firman dan penggembalaan.
-                </p>
-                <p>
-                  Dengan hati yang hangat, beliau menggembalakan jemaat GBI
-                  Getsemani dengan kasih dan pengorbanan, membawa jemaat untuk
-                  bertumbuh dalam iman dan menjadi berkat bagi sesama.
-                </p>
-              </div>
-            </div>
-          </div>
+        <!-- Motif Background Artistik (Latar Belakang Tidak Monoton) -->
+        <div class="pastor-bg-motif" aria-hidden="true">
+          <svg class="pastor-arch-lines" viewBox="0 0 1440 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M720 40 C420 40 240 240 240 680" stroke="rgba(255, 158, 32, 0.08)" stroke-width="1.5" stroke-dasharray="6 6"/>
+            <path d="M720 40 C1020 40 1200 240 1200 680" stroke="rgba(255, 158, 32, 0.08)" stroke-width="1.5" stroke-dasharray="6 6"/>
+            <path d="M720 110 C500 110 360 280 360 680" stroke="rgba(33, 94, 97, 0.15)" stroke-width="1.5"/>
+            <path d="M720 110 C940 110 1080 280 1080 680" stroke="rgba(33, 94, 97, 0.15)" stroke-width="1.5"/>
+            <circle cx="720" cy="110" r="4" fill="rgba(255, 158, 32, 0.4)"/>
+            <path d="M720 20 V80 M690 50 H750" stroke="rgba(255, 158, 32, 0.25)" stroke-width="1.5"/>
+          </svg>
+          <div class="pastor-glow-orb glow-gold"></div>
+          <div class="pastor-glow-orb glow-teal"></div>
+          <div class="pastor-grid-overlay"></div>
+        </div>
 
-          <!-- ================= GEMBALA 2 ================= -->
-          <div class="pastor-container">
-            <div class="pastor-image">
-              <img
-                src="./Resource/Screenshot_2026-07-27_013853-removebg-preview.png"
-                alt="Pdt. / Pdm. Nama Gembala"
-              />
-            </div>
-            <div class="pastor-content">
-              <p class="eyebrow">Wakil Gembala Sidang</p>
-              <h2>Pdm. Yosua Supriyanto, S.Th.</h2>
-              <div class="pastor-description">
-                <p>
-                  Mendampingi pelayanan penggembalaan dengan kesetiaan dan
-                  dedikasi tinggi. Beliau berfokus pada pemanduan pemanduan
-                  komunitet sel (COOL) serta pembinaan pengajaran firman bagi
-                  pertumbuhan rohani jemaat.
-                </p>
-                <p>
-                  Kerinduan terbesarnya adalah membimbing setiap anggota jemaat
-                  untuk memiliki hubungan pribadi yang mendalam dengan Kristus
-                  dan siap melayani.
-                </p>
-              </div>
-            </div>
+        <div class="pastor-header">
+          <div class="pastor-header-text">
+            <p class="eyebrow">Penggembalaan</p>
+            <h2 class="pastor-section-title" id="gembala-title">Gembala Sidang &amp; Pelayan Firman</h2>
+            <p class="pastor-section-subtitle">
+              Membimbing jemaat bertumbuh dalam iman dan pengenalan akan Tuhan dengan hati yang melayani.
+            </p>
           </div>
+          <div class="pastor-nav-controls" aria-label="Navigasi Gembala">
+            <button
+              type="button"
+              class="pastor-nav-btn prev"
+              id="pastorPrevBtn"
+              aria-label="Gembala sebelumnya"
+            >
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <div class="pastor-counter" aria-live="polite">
+              <span id="pastorCurrentIndex">01</span><span class="pastor-counter-divider">/</span><span id="pastorTotalCount">03</span>
+            </div>
+            <button
+              type="button"
+              class="pastor-nav-btn next"
+              id="pastorNextBtn"
+              aria-label="Gembala berikutnya"
+            >
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
 
-          <!-- ================= GEMBALA 3 ================= -->
-          <div class="pastor-container">
-            <div class="pastor-image">
-              <img
-                src="./Resource/Screenshot_2026-07-27_013853-removebg-preview.png"
-                alt="Pdm. Nama Gembala Youth"
-              />
-            </div>
-            <div class="pastor-content">
-              <p class="eyebrow">Gembala Pembina Youth & Next Gen</p>
-              <h2>Pdm. Daniel Setiawan, S.Kom.</h2>
-              <div class="pastor-description">
-                <p>
-                  Berfokus pada pelayanan generasi muda, beliau mendedikasikan
-                  hidupnya untuk membimbing anak-anak muda menemukan tujuan
-                  hidup dan potensi terbaik mereka di dalam Tuhan.
-                </p>
-                <p>
-                  Lewat pendekatan yang relevan dan kontekstual, beliau rindu
-                  melahirkan generasi muda yang tangguh, berkarakter Kristus,
-                  dan menjadi terang di era digital.
-                </p>
+        <!-- Quick Pastor Selector Tabs -->
+        <div class="pastor-tabs-nav" role="tablist" aria-label="Pilih Gembala">
+          <button type="button" class="pastor-tab is-active" data-index="0" role="tab" aria-selected="true">
+            <span class="pastor-tab-dot"></span>
+            <span class="pastor-tab-text">Pdt. Ed Merdhiriawan</span>
+            <span class="pastor-tab-role">Gembala Sidang</span>
+          </button>
+          <button type="button" class="pastor-tab" data-index="1" role="tab" aria-selected="false">
+            <span class="pastor-tab-dot"></span>
+            <span class="pastor-tab-text">Pdm. Yosua Supriyanto</span>
+            <span class="pastor-tab-role">Wakil Gembala</span>
+          </button>
+          <button type="button" class="pastor-tab" data-index="2" role="tab" aria-selected="false">
+            <span class="pastor-tab-dot"></span>
+            <span class="pastor-tab-text">Pdm. Daniel Setiawan</span>
+            <span class="pastor-tab-role">Gembala Youth</span>
+          </button>
+        </div>
+
+        <!-- Panggung Tunggal (1 per 1 Full Stage Spotlight Slider) -->
+        <div class="pastor-stage" id="pastorStage">
+          <div class="pastor-track" id="pastorTrack">
+            <!-- ================= SLIDE 1: GEMBALA UTAMA ================= -->
+            <article class="pastor-slide is-active" data-index="0" aria-label="Profil Pdt. Ed Merdhiriawan">
+              <div class="pastor-card">
+                <!-- Kolom Kiri: Potret Mewah & Arch Portal -->
+                <div class="pastor-visual-col">
+                  <div class="pastor-portal-frame">
+                    <div class="pastor-portal-halo"></div>
+                    <div class="pastor-portal-backdrop"></div>
+                    <img
+                      src="./Resource/Screenshot_2026-07-27_013853-removebg-preview.png"
+                      alt="Pdt. Ed Merdhiriawan, S.KH., M.Th."
+                      class="pastor-portrait-img"
+                      loading="lazy"
+                    />
+                    <div class="pastor-status-pill">
+                      <span class="status-indicator"></span>
+                      <span>Pelayanan Firman &amp; Penggembalaan</span>
+                    </div>
+                  </div>
+                  <div class="pastor-verse-tag">
+                    <span class="verse-tag-icon">✦</span>
+                    <span>Matius 6:33 — Prioritas Kerajaan Allah</span>
+                  </div>
+                </div>
+
+                <!-- Kolom Kanan: Identitas & Narasi Visi Pastoral -->
+                <div class="pastor-info-col">
+                  <div class="pastor-badge">
+                    <span class="badge-dot"></span>
+                    <span>Gembala Sidang GBI Getsemani Kediri</span>
+                  </div>
+                  <h3 class="pastor-name">Pdt. Ed Merdhiriawan, S.KH., M.Th.</h3>
+
+                  <!-- Kotak Ayat Emas Pelayanan (Life Verse) -->
+                  <div class="pastor-verse-box">
+                    <div class="verse-icon" aria-hidden="true">❝</div>
+                    <div class="verse-body">
+                      <p class="verse-quote">"Tetapi carilah dahulu Kerajaan Allah dan kebenarannya, maka semuanya itu akan ditambahkan kepadamu."</p>
+                      <span class="verse-ref">Matius 6:33</span>
+                    </div>
+                  </div>
+
+                  <!-- 2 Paragraf Narasi Proporsional & Menginspirasi -->
+                  <div class="pastor-bio">
+                    <p>
+                      Dipanggil untuk melayani Tuhan sejak usia muda, Pdt. Ed Merdhiriawan mendedikasikan segenap hidupnya dalam penggembalaan jemaat. Dengan hati kebapaan yang hangat, beliau membimbing keluarga besar GBI Getsemani untuk bertumbuh teguh dalam firman dan berakar kuat di dalam Kristus.
+                    </p>
+                    <p>
+                      Kerinduannya adalah memimpin jemaat menjadi berkat nyata bagi kota dan bangsa, membangun mezbah doa yang hidup, serta memperlengkapi generasi penerus agar memiliki karakter Kristus yang berdampak bagi kemuliaan Tuhan.
+                    </p>
+                  </div>
+
+                  <!-- 3 Tag Fokus Pelayanan Seragam -->
+                  <div class="pastor-focus-list">
+                    <span class="pastor-focus-item">✦ Kepemimpinan Gereja</span>
+                    <span class="pastor-focus-item">✦ Pelayanan Firman</span>
+                    <span class="pastor-focus-item">✦ Penggembalaan Raya</span>
+                  </div>
+
+                  <!-- Tombol Aksi Doa & Konseling Pastoral -->
+                  <div class="pastor-action-row">
+                    <a
+                      href="https://wa.me/6281234567890?text=Shalom%20Pdt.%20Ed%20Merdhiriawan,%20saya%20ingin%20berkonsultasi%20dan%20memohon%20dukungan%20doa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="pastor-cta-link"
+                    >
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <span>Konseling &amp; Permohonan Doa</span>
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
+            </article>
+
+            <!-- ================= SLIDE 2: WAKIL GEMBALA ================= -->
+            <article class="pastor-slide" data-index="1" aria-label="Profil Pdm. Yosua Supriyanto">
+              <div class="pastor-card">
+                <!-- Kolom Kiri: Potret Mewah & Arch Portal -->
+                <div class="pastor-visual-col">
+                  <div class="pastor-portal-frame">
+                    <div class="pastor-portal-halo"></div>
+                    <div class="pastor-portal-backdrop"></div>
+                    <img
+                      src="./Resource/Screenshot_2026-07-27_013853-removebg-preview.png"
+                      alt="Pdm. Yosua Supriyanto, S.Th."
+                      class="pastor-portrait-img"
+                      loading="lazy"
+                    />
+                    <div class="pastor-status-pill">
+                      <span class="status-indicator"></span>
+                      <span>Pembinaan Jemaat &amp; Komunitas</span>
+                    </div>
+                  </div>
+                  <div class="pastor-verse-tag">
+                    <span class="verse-tag-icon">✦</span>
+                    <span>Yosua 1:9 — Kuatkan &amp; Teguhkan Hati</span>
+                  </div>
+                </div>
+
+                <!-- Kolom Kanan: Identitas & Narasi Visi Pastoral -->
+                <div class="pastor-info-col">
+                  <div class="pastor-badge">
+                    <span class="badge-dot"></span>
+                    <span>Wakil Gembala Sidang GBI Getsemani</span>
+                  </div>
+                  <h3 class="pastor-name">Pdm. Yosua Supriyanto, S.Th.</h3>
+
+                  <!-- Kotak Ayat Emas Pelayanan (Life Verse) -->
+                  <div class="pastor-verse-box">
+                    <div class="verse-icon" aria-hidden="true">❝</div>
+                    <div class="verse-body">
+                      <p class="verse-quote">"Kuatkan dan teguhkanlah hatimu! Janganlah kecut dan tawar hati, sebab TUHAN, Allahmu, menyertai engkau, ke mana pun engkau pergi."</p>
+                      <span class="verse-ref">Yosua 1:9</span>
+                    </div>
+                  </div>
+
+                  <!-- 2 Paragraf Narasi Proporsional & Menginspirasi -->
+                  <div class="pastor-bio">
+                    <p>
+                      Mendampingi pelayanan penggembalaan dengan kesetiaan dan dedikasi penuh, Pdm. Yosua Supriyanto memfokuskan panggilannya pada penguatan komunitet sel (COOL) dan pembinaan pemuridan jemaat secara berkesinambungan.
+                    </p>
+                    <p>
+                      Melalui pengajaran firman yang praktis dan pelayanan konseling pastoral yang berbelas kasih, beliau rindu membimbing setiap anggota jemaat untuk memiliki persekutuan intim dengan Tuhan dan siap menjadi saksi Kristus di lingkungan sekitarnya.
+                    </p>
+                  </div>
+
+                  <!-- 3 Tag Fokus Pelayanan Seragam -->
+                  <div class="pastor-focus-list">
+                    <span class="pastor-focus-item">✦ Pembinaan COOL</span>
+                    <span class="pastor-focus-item">✦ Pemuridan Jemaat</span>
+                    <span class="pastor-focus-item">✦ Konseling Pastoral</span>
+                  </div>
+
+                  <!-- Tombol Aksi Doa & Konseling Pastoral -->
+                  <div class="pastor-action-row">
+                    <a
+                      href="https://wa.me/6281234567890?text=Shalom%20Pdm.%20Yosua%20Supriyanto,%20saya%20ingin%20berkonsultasi%20dan%20memohon%20dukungan%20doa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="pastor-cta-link"
+                    >
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <span>Konseling &amp; Permohonan Doa</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ================= SLIDE 3: GEMBALA YOUTH ================= -->
+            <article class="pastor-slide" data-index="2" aria-label="Profil Pdm. Daniel Setiawan">
+              <div class="pastor-card">
+                <!-- Kolom Kiri: Potret Mewah & Arch Portal -->
+                <div class="pastor-visual-col">
+                  <div class="pastor-portal-frame">
+                    <div class="pastor-portal-halo"></div>
+                    <div class="pastor-portal-backdrop"></div>
+                    <img
+                      src="./Resource/Screenshot_2026-07-27_013853-removebg-preview.png"
+                      alt="Pdm. Daniel Setiawan, S.Kom."
+                      class="pastor-portrait-img"
+                      loading="lazy"
+                    />
+                    <div class="pastor-status-pill">
+                      <span class="status-indicator"></span>
+                      <span>Youth Ministry &amp; Next Generation</span>
+                    </div>
+                  </div>
+                  <div class="pastor-verse-tag">
+                    <span class="verse-tag-icon">✦</span>
+                    <span>1 Timotius 4:12 — Teladan Generasi Muda</span>
+                  </div>
+                </div>
+
+                <!-- Kolom Kanan: Identitas & Narasi Visi Pastoral -->
+                <div class="pastor-info-col">
+                  <div class="pastor-badge">
+                    <span class="badge-dot"></span>
+                    <span>Gembala Pembina Youth &amp; Next Gen</span>
+                  </div>
+                  <h3 class="pastor-name">Pdm. Daniel Setiawan, S.Kom.</h3>
+
+                  <!-- Kotak Ayat Emas Pelayanan (Life Verse) -->
+                  <div class="pastor-verse-box">
+                    <div class="verse-icon" aria-hidden="true">❝</div>
+                    <div class="verse-body">
+                      <p class="verse-quote">"Jangan seorang pun menganggap engkau rendah karena engkau muda. Jadilah teladan bagi orang-orang percaya dalam perkataan, tingkah laku, kasih, kesetiaan dan kesucianmu."</p>
+                      <span class="verse-ref">1 Timotius 4:12</span>
+                    </div>
+                  </div>
+
+                  <!-- 2 Paragraf Narasi Proporsional & Menginspirasi -->
+                  <div class="pastor-bio">
+                    <p>
+                      Memiliki kegerakan kuat bagi generasi muda, Pdm. Daniel Setiawan mendedikasikan panggilannya untuk membimbing pemuda dan remaja agar menemukan potensi terbaik serta tujuan hidup yang ilahi di dalam Tuhan.
+                    </p>
+                    <p>
+                      Dengan pendekatan yang relevan, dinamis, dan kontekstual di era digital, beliau bertekad mencetak generasi anak muda yang tangguh dalam iman, berkarakter Kristus, kreatif, dan berani bersinar di tengah zamannya.
+                    </p>
+                  </div>
+
+                  <!-- 3 Tag Fokus Pelayanan Seragam -->
+                  <div class="pastor-focus-list">
+                    <span class="pastor-focus-item">✦ Pembinaan Next Gen</span>
+                    <span class="pastor-focus-item">✦ Mentoring Kreatif</span>
+                    <span class="pastor-focus-item">✦ Pemuridan Era Digital</span>
+                  </div>
+
+                  <!-- Tombol Aksi Doa & Konseling Pastoral -->
+                  <div class="pastor-action-row">
+                    <a
+                      href="https://wa.me/6281234567890?text=Shalom%20Pdm.%20Daniel%20Setiawan,%20saya%20ingin%20berkonsultasi%20dan%20memohon%20dukungan%20doa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="pastor-cta-link"
+                    >
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <span>Konseling &amp; Permohonan Doa</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
+        </div>
+
+        <!-- Slide Dots Indicator -->
+        <div class="pastor-dots" id="pastorDots" aria-label="Indikator slide gembala">
+          <button type="button" class="pastor-dot is-active" data-index="0" aria-label="Menuju gembala 1"></button>
+          <button type="button" class="pastor-dot" data-index="1" aria-label="Menuju gembala 2"></button>
+          <button type="button" class="pastor-dot" data-index="2" aria-label="Menuju gembala 3"></button>
         </div>
       </section>
 
@@ -504,7 +757,7 @@
             </p>
           </div>
 
-          <div class="khotbah-grid">
+          <div class="khotbah-grid" id="khotbah-grid">
             <!-- Video 1 -->
             <article class="khotbah-card">
               <a
@@ -843,7 +1096,7 @@
           <p>Laporan kegiatan dan dokumentasi pelayanan GBI Getsemani.</p>
         </div>
 
-        <div class="gallery-grid">
+        <div class="gallery-grid" id="gallery-grid">
           <!-- Gambar 1 -->
           <figure>
             <div class="gallery-image">
@@ -1049,6 +1302,29 @@
       </section>
     </main>
 
+    <!-- ===== RUNNING TEXT PRE-FOOTER (WARTA & FIRMAN SEBELUM FOOTER) ===== -->
+    <aside class="infinite-marquee pre-footer-marquee" aria-label="Warta dan Firman Berjalan Bawah">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span class="marquee-item"><span class="marquee-icon">✦</span> Shalom! Pintu Hati &amp; Rumah Ibadah Kami Selalu Terbuka Menyambut Anda &amp; Keluarga</span>
+          <span class="marquee-item"><span class="marquee-icon">•</span> Ibadah Raya Setiap Minggu: Sesi I 06.15 WIB &amp; Sesi II 18.15 WIB</span>
+          <span class="marquee-item"><span class="marquee-icon">✦</span> "Marilah kepada-Ku, semua yang letih lesu dan berbeban berat, Aku akan memberi kelegaan kepadamu" — Matius 11:28</span>
+          <span class="marquee-item"><span class="marquee-icon">•</span> Pelayanan Doa &amp; Konseling Siap Menopang Setiap Langkah Kehidupan Anda</span>
+          <span class="marquee-item"><span class="marquee-icon">✦</span> GBI Getsemani Kediri — Jl. Hasanudin No. 12, Kediri, Jawa Timur</span>
+          <span class="marquee-item"><span class="marquee-icon">•</span> Bertumbuh Bersama Dalam Komunitas Sel (COOL) &amp; Next Generation</span>
+        </div>
+        <!-- Duplicate content for seamless infinite CSS animation -->
+        <div class="marquee-content" aria-hidden="true">
+          <span class="marquee-item"><span class="marquee-icon">✦</span> Shalom! Pintu Hati &amp; Rumah Ibadah Kami Selalu Terbuka Menyambut Anda &amp; Keluarga</span>
+          <span class="marquee-item"><span class="marquee-icon">•</span> Ibadah Raya Setiap Minggu: Sesi I 06.15 WIB &amp; Sesi II 18.15 WIB</span>
+          <span class="marquee-item"><span class="marquee-icon">✦</span> "Marilah kepada-Ku, semua yang letih lesu dan berbeban berat, Aku akan memberi kelegaan kepadamu" — Matius 11:28</span>
+          <span class="marquee-item"><span class="marquee-icon">•</span> Pelayanan Doa &amp; Konseling Siap Menopang Setiap Langkah Kehidupan Anda</span>
+          <span class="marquee-item"><span class="marquee-icon">✦</span> GBI Getsemani Kediri — Jl. Hasanudin No. 12, Kediri, Jawa Timur</span>
+          <span class="marquee-item"><span class="marquee-icon">•</span> Bertumbuh Bersama Dalam Komunitas Sel (COOL) &amp; Next Generation</span>
+        </div>
+      </div>
+    </aside>
+
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer" id="footer">
       <div class="footer-container">
@@ -1109,6 +1385,14 @@
               rel="noopener"
               class="app-btn"
               >GBI GETSEMANI</a
+            >
+          </div>
+          <div style="margin-top: 10px;">
+            <a
+              href="./admin/index.html"
+              class="app-btn"
+              style="background: rgba(255, 158, 32, 0.15); border: 1px solid var(--primary); color: #fff; font-size: 0.85rem;"
+              >🔐 Panel Admin CMS</a
             >
           </div>
 
@@ -1186,7 +1470,7 @@
       <div class="footer-bottom">
         <p class="copyright">
           &copy; <span id="year-footer"></span> GBI Getsemani - IT Dept. All
-          rights reserved.
+          rights reserved. &bull; <a href="./admin/index.html" style="color: inherit; text-decoration: underline; opacity: 0.75;">Admin Login</a>
         </p>
       </div>
     </footer>
